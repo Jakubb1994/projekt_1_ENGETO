@@ -5,7 +5,7 @@ author: Jakub Prajzler
 email: prajzler25@gmail.com
 
 '''
-TEXT = ['''
+text = ['''
 Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
 topographic feature that rises sharply
@@ -56,3 +56,13 @@ else:
     
 # Výběr textu
 vyber = input("Pro výběr textu zadej číslo v rozmezí 1 až 3:\n")
+if vyber.isdigit() and 1 <= int(vyber) <= 3:
+    vyber = int(vyber)      # Převod na číslo, pokud je vstup platný
+else:
+    print("Neplatný vstup, konec programu.")
+    exit()
+
+# Výběr textu
+vybrany_text = text[vyber - 1]
+
+print(vybrany_text)
