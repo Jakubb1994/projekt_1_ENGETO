@@ -54,3 +54,5 @@ else:
     print("Neregistrovaný uživatel, konec programu.")
     exit()
     
+# Výběr textu
+vyber = input("Pro výběr textu zadej číslo v rozmezí 1 až 3:\n")
