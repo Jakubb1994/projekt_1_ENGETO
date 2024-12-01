@@ -43,3 +43,14 @@ uzivatele = {
     "liz": "pass123"
 }
 
+# Přihálšení uživatele
+uzivatelske_jmeno = input("Zadej uživatelské jméno:\n")
+heslo = input("Zadej heslo:\n")
+
+if uzivatelske_jmeno in uzivatele and uzivatele[uzivatelske_jmeno] == heslo:
+    print(f"Vítej v aplikace, {uzivatelske_jmeno}!")
+    print(f"Máme 3 texty, které je třeba analyzovat.")
+else:
+    print("Neregistrovaný uživatel, konec programu.")
+    exit()
+    
