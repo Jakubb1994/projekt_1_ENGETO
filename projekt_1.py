@@ -66,4 +66,23 @@ else:
 vybrany_text = text[vyber - 1]
 
 # Analýza textu
+slova = vybrany_text.split()
+
+pocet_slov = len(slova)
+velka_pismena_zacatek = sum(1 for slovo in slova if slovo.istitle())
+pouze_velka_pismena = sum(1 for slovo in slova if slovo.isupper())
+pouze_mala_pismena = sum(1 for slovo in slova if slovo.islower())
+pocet_cisel = sum(1 for slovo in slova if slovo.isdigit())
+soucet_cisel = sum(int(slovo) for slovo in slova if slovo.isdigit())
+
+# Výsledek analýzy
+print("-" * 43)
+print(f"Vybraný text obsahuje {pocet_slov} slov.")
+print(f"Slova začínající velkým písmenem: {velka_pismena_zacatek}.")
+print(f"Slova psaná velkými písmeny: {pouze_velka_pismena}.")
+print(f"Slova psaná malými písmeny: {pouze_mala_pismena}.")
+print(f"Počet čísel v textu: {pocet_cisel}.")
+print(f"Součet všech čísel v textu: {soucet_cisel}.")
+print("-" * 43)
+
 
