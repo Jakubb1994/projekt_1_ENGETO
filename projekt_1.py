@@ -65,4 +65,5 @@ else:
 # Výběr textu
 vybrany_text = text[vyber - 1]
 
-print(vybrany_text)
+# Analýza textu
+
