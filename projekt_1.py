@@ -3,8 +3,9 @@ projekt_1.py: první projekt do Engeto Online Python Akademie
 
 author: Jakub Prajzler
 email: prajzler25@gmail.com
-
 '''
+import string
+
 text = ['''
 Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
