@@ -48,14 +48,16 @@ uzivatelske_jmeno = input("Zadej uživatelské jméno:\n")
 heslo = input("Zadej heslo:\n")
 
 if uzivatelske_jmeno in uzivatele and uzivatele[uzivatelske_jmeno] == heslo:
-    print(f"Vítej v aplikace, {uzivatelske_jmeno}!")
+    print("-" * 40)
+    print(f"Vítej v aplikaci, {uzivatelske_jmeno}!")
     print(f"Máme 3 texty, které je třeba analyzovat.")
+    print("-" * 40)
 else:
     print("Neregistrovaný uživatel, konec programu.")
     exit()
     
 # Výběr textu
-vyber = input("Pro výběr textu zadej číslo v rozmezí 1 až 3:\n")
+vyber = input("Pro výběr textu, zadej číslo v rozmezí 1 až 3:\n")
 if vyber.isdigit() and 1 <= int(vyber) <= 3:
     vyber = int(vyber)      # Převod na číslo, pokud je vstup platný
 else:
@@ -70,19 +72,37 @@ slova = vybrany_text.split()
 
 pocet_slov = len(slova)
 velka_pismena_zacatek = sum(1 for slovo in slova if slovo.istitle())
-pouze_velka_pismena = sum(1 for slovo in slova if slovo.isupper())
+pouze_velka_pismena = sum(1 for slovo in slova if slovo.isupper() and slovo.isalpha())
 pouze_mala_pismena = sum(1 for slovo in slova if slovo.islower())
 pocet_cisel = sum(1 for slovo in slova if slovo.isdigit())
 soucet_cisel = sum(int(slovo) for slovo in slova if slovo.isdigit())
 
 # Výsledek analýzy
-print("-" * 43)
-print(f"Vybraný text obsahuje {pocet_slov} slov.")
-print(f"Slova začínající velkým písmenem: {velka_pismena_zacatek}.")
-print(f"Slova psaná velkými písmeny: {pouze_velka_pismena}.")
-print(f"Slova psaná malými písmeny: {pouze_mala_pismena}.")
-print(f"Počet čísel v textu: {pocet_cisel}.")
-print(f"Součet všech čísel v textu: {soucet_cisel}.")
-print("-" * 43)
+print("-" * 40)
+print(f"Vybraný text obsahuje {pocet_slov} slov")
+print(f"Slova začínající velkými písmeny: {velka_pismena_zacatek}")
+print(f"Slova psaná velkými písmeny: {pouze_velka_pismena}")
+print(f"Slova psaná malými písmeny: {pouze_mala_pismena}")
+print(f"Počet čísel v textu: {pocet_cisel}")
+print(f"Součet všech čísel v textu: {soucet_cisel}")
+
+# Výpočet délky slov
+delka_slov = [len(slovo) for slovo in slova]
 
 
+# Výpočet četností délky slova
+cetnosti = {}
+for delka in delka_slov:
+    if delka in cetnosti:
+        cetnosti[delka] += 1
+    else:
+        cetnosti[delka] = 1
+
+# Graf
+print("-" * 40)
+print(f"{'DÉLKA SLOVA':<12}| {'ČETNOST':<20}| {'ČÍSLO'}")
+print("-" * 40)
+for delka in sorted(cetnosti):
+    hvezdicky = "*" * cetnosti[delka]
+    print(f"{delka:<12}| {hvezdicky:<20}| {cetnosti[delka]:<5}")
+print("-" * 40)
