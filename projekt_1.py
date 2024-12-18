@@ -71,12 +71,15 @@ vybrany_text = text[vyber - 1]
 # Analýza textu
 slova = vybrany_text.split()
 
-pocet_slov = len(slova)
-velka_pismena_zacatek = sum(1 for slovo in slova if slovo.istitle())
-pouze_velka_pismena = sum(1 for slovo in slova if slovo.isupper() and slovo.isalpha())
-pouze_mala_pismena = sum(1 for slovo in slova if slovo.islower())
-pocet_cisel = sum(1 for slovo in slova if slovo.isdigit())
-soucet_cisel = sum(int(slovo) for slovo in slova if slovo.isdigit())
+# Očistit slova od interpunkce
+slova_ocistena = [slovo.strip(string.punctuation) for slovo in slova]
+
+pocet_slov = len(slova_ocistena)
+velka_pismena_zacatek = sum(1 for slovo in slova_ocistena if slovo.istitle())
+pouze_velka_pismena = sum(1 for slovo in slova_ocistena if slovo.isupper() and slovo.isalpha())
+pouze_mala_pismena = sum(1 for slovo in slova_ocistena if slovo.islower())
+pocet_cisel = sum(1 for slovo in slova_ocistena if slovo.isdigit())
+soucet_cisel = sum(int(slovo) for slovo in slova_ocistena if slovo.isdigit())
 
 # Výsledek analýzy
 print("-" * 40)
@@ -88,7 +91,7 @@ print(f"Počet čísel v textu: {pocet_cisel}")
 print(f"Součet všech čísel v textu: {soucet_cisel}")
 
 # Výpočet délky slov
-delka_slov = [len(slovo) for slovo in slova]
+delka_slov = [len(slovo) for slovo in slova_ocistena]
 
 
 # Výpočet četností délky slova
