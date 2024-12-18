@@ -104,9 +104,9 @@ for delka in delka_slov:
 
 # Graf
 print("-" * 40)
-print(f"{'DÉLKA SLOVA':<12}| {'ČETNOST':<20}| {'ČÍSLO'}")
+print(f"{'DÉLKA SLOVA':<5}| {'ČETNOST':<12}| {'ČÍSLO' :<5}")
 print("-" * 40)
 for delka in sorted(cetnosti):
     hvezdicky = "*" * cetnosti[delka]
-    print(f"{delka:<12}| {hvezdicky:<20}| {cetnosti[delka]:<5}")
+    print(f"{delka:<5}| {hvezdicky:<12}| {cetnosti[delka]:<5}")
 print("-" * 40)
